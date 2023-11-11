@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is building the app with GitHub Actions 🚀
 on:
   push:
     branches:
-      - deploy_this_branch_to_digital_ocean
+      - deploy_this_branch_to_digitalocean
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
