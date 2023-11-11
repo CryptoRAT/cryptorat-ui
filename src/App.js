@@ -55,7 +55,7 @@ class App extends Component {
 
   renderSurvivorName = () => {
 
-    const randomSurvivor = this.state.survivorsList.filter(
+    const randomSurvivor = this.state.survivorsList.find(
         (survivor) => survivor.name === "Ace Visconti"
     );
 
