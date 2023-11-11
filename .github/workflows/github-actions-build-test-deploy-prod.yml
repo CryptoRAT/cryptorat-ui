@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is building the app with GitHub Actions 🚀
 on:
   push:
     branches:
-      - setup_github_actions_to_build_release
+      - deploy_this_branch_to_digital_ocean
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -17,4 +17,10 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Build with npm
         uses: ankitasen-ubmainz/build-npm-action@v0.2
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "🍏 Build and Test status is ${{ job.status }}."
+      - name: DigitalOcean App Platform deployment
+        uses: digitalocean/app_action@v1.1.6
+        with:
+          app_name: dbd_randomizer_ui
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - run: echo "🍏 Deployment to digitalocean status is ${{ job.status }}."
