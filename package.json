@@ -6,16 +6,21 @@
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@testing-library/user-event": "latest",
+    "bootstrap": "latest",
+    "build": "^0.1.4",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest",
-    "web-vitals": "latest",
-    "bootstrap": "latest",
-    "reactstrap": "latest"
+    "reactstrap": "latest",
+    "web-vitals": "latest"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/ --ignore-pattern build/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -38,5 +43,3 @@
     ]
   }
 }
-
-
