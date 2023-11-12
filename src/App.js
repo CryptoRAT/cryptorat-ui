@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 const survivorsList = [
   {
@@ -28,66 +29,75 @@ class App extends Component {
     super(props);
     this.state = {
       survivorsList: survivorsList,
-      survivorName: "Ace Visconti"
+      survivorName: "Ace Visconti",
+      survivorImagePath: "static/survivors/ace_visconti.jpg"
     };
   }
 
-  // displayRandom = (status) => {
-  //   if (status) {
-  //     return this.setState({ randomCalculated: true });
-  //   }
-  //
-  //   return this.setState({ randomCalculated: false });
-  // };
+  componentDidMount() {
+    this.refreshList();
+  }
 
-  renderSurvivorTitle = () => {
-    return (
-        <div className="nav nav-tabs">
-        <span
-            className={this.state.randomCalculated ? "nav-link active" : "nav-link"}
-            onClick={() => this.displayRandom(true)}
-        >
-          Survivor
-        </span>
-        </div>
-    );
+  refreshList = () => {
+    axios
+        .get("api/survivors/")
+        .then((res) => this.setState({ survivorsList: res.data }))
+        .catch((err) => console.log(err));
   };
 
-  renderSurvivorName = () => {
+  calculateRandom = (status) => {
+    console.log("entering calculateRandom");
+    if (status) {
+      let survivor = this.getRandomSurvivor();
+      this.setState({ survivorName: survivor.name });
+      this.setState({ survivorImagePath: survivor.image_path });
+    }
 
-    const randomSurvivor = this.state.survivorsList.find(
-        (survivor) => survivor.name === "Ace Visconti"
-    );
+    console.log("returning from calculateRandom with randomCalculated: " + status);
+    return this.setState({ randomCalculated: status });
+  };
 
-    console.log("Random Survivor: " + JSON.stringify(randomSurvivor))
-    console.log("Survivor Name: " + randomSurvivor.name);
-
-    // return randomSurvivor['name'];
-    return <div>Survivor: {this.state.survivorName}</div>;
+  renderGenerateRandomButton = () => {
+    console.log("entering renderGenerateRandomButton");
+    console.log("returning from renderGenerateRandomButton")
+    return (
+        <div>
+          <button className="btn btn-primary" onClick={() => {
+            console.log("Button Clicked");
+            this.calculateRandom(true);
+          }}>
+            Generate Random Survivor Build
+          </button>
+        </div>);
   };
 
   render() {
+    console.log("entering render");
+    console.log("returning from render");
     return (
         <main className="container">
-          <h1 className="text-white text-uppercase text-center my-4">Dead by Daylight Randomizer App</h1>
+          <h1 className="text-white text-uppercase text-center my-4">Dead by Daylight Build Randomizer App</h1>
           <div className="row">
             <div className="col-md-6 col-sm-10 mx-auto p-0">
               <div className="card p-3">
                 <div className="mb-4">
-                  <button
-                      className="btn btn-primary"
-                  >
-                    Select Random Survivor
-                  </button>
+                  {this.renderGenerateRandomButton()}
                 </div>
-                <div>{this.renderSurvivorTitle()}</div>
-                <div>{this.renderSurvivorName()}</div>
-                {/*<div>{"Ace Visconti"}</div>*/}
+                <div>Survivor: {this.state.survivorName}</div>
+                <div><img className="profile-photo" src={this.state.survivorImagePath} alt={this.state.survivorName}/></div>
               </div>
             </div>
           </div>
         </main>
     );
+  }
+
+  getRandomSurvivor() {
+    console.log("entering getRandomSurvivor");
+    let survivor = this.state.survivorsList[Math.floor(Math.random()*this.state.survivorsList.length)];
+    console.log("Survivor: " + survivor)
+    console.log("returning from getRandomSurvivor")
+    return survivor;
   }
 }
 
