@@ -2,10 +2,12 @@
   "name": "dbd-randomizer-ui",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@testing-library/user-event": "latest",
+    "axios": "^1.6.1",
     "bootstrap": "latest",
     "build": "^0.1.4",
     "react": "latest",
