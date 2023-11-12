@@ -2,6 +2,7 @@
   "name": "dbd-randomizer-ui",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "proxy": "http://localhost:8000",
   "dependencies": {
     "@testing-library/jest-dom": "latest",
