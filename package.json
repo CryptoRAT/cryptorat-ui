@@ -18,7 +18,9 @@
     "web-vitals": "latest"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "latest"
+    "@babel/plugin-proposal-private-property-in-object": "latest",
+    "@babel/preset-env": "^7.23.3",
+    "babel-jest": "^29.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,6 +34,11 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "browserslist": {
     "production": [
