@@ -43,6 +43,15 @@ class App extends Component {
   }
 
   refreshList = () => {
+    axios.interceptors.request.use(request => {
+      console.log('Starting Request', JSON.stringify(request, null, 2))
+      return request
+    })
+
+    axios.interceptors.response.use(response => {
+      console.log('Response:', JSON.stringify(response, null, 2))
+      return response
+    })
     axios
         .get("https://clownfish-app-8qi77.ondigitalocean.app:8000/api/survivors/")
         .then((res) => this.setState({ survivorsList: res.data }))
