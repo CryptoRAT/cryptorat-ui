@@ -97,8 +97,10 @@ class App extends Component {
 
   getRandomSurvivor() {
     console.log("entering getRandomSurvivor");
+    console.log("survivorsList: " + this.state.survivorsList);
+    JSON.stringify(this.state.survivorsList);
     let survivor = this.state.survivorsList[Math.floor(Math.random()*this.state.survivorsList.length)];
-    console.log("Survivor: " + survivor)
+    console.log("survivor: " + survivor.name);
     console.log("returning from getRandomSurvivor")
     return survivor;
   }
