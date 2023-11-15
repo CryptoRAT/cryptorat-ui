@@ -40,7 +40,7 @@ class App extends Component {
 
   refreshList = () => {
     axios
-        .get("api/survivors/")
+        .get("http://clownfish-app-8qi77.ondigitalocean.app:8000/api/survivors/")
         .then((res) => this.setState({ survivorsList: res.data }))
         .catch((err) => console.log(err));
   };
