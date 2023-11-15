@@ -38,6 +38,7 @@ class App extends Component {
     console.log("entering componentDidMount");
     console.log("calling refreshList");
     this.refreshList();
+    console.log(JSON.stringify(this.state.survivorsList));
     console.log("returning from componentDidMount");
   }
 
@@ -98,7 +99,7 @@ class App extends Component {
   getRandomSurvivor() {
     console.log("entering getRandomSurvivor");
     console.log("survivorsList: " + this.state.survivorsList);
-    JSON.stringify(this.state.survivorsList);
+    console.log(JSON.stringify(this.state.survivorsList));
     let survivor = this.state.survivorsList[Math.floor(Math.random()*this.state.survivorsList.length)];
     console.log("survivor: " + survivor.name);
     console.log("returning from getRandomSurvivor")
