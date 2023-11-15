@@ -35,12 +35,15 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log("entering componentDidMount");
+    console.log("calling refreshList");
     this.refreshList();
+    console.log("returning from componentDidMount");
   }
 
   refreshList = () => {
     axios
-        .get("http://clownfish-app-8qi77.ondigitalocean.app:8000/api/survivors/")
+        .get("https://clownfish-app-8qi77.ondigitalocean.app:8000/api/survivors/")
         .then((res) => this.setState({ survivorsList: res.data }))
         .catch((err) => console.log(err));
   };
