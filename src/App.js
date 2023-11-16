@@ -53,7 +53,7 @@ class App extends Component {
       return response
     })
     axios
-        .get(process.env.DBD_RANDOMIZER_SERVICE_URL + "api/survivor/")
+        .get(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL + "api/survivor/")
         .then((res) => this.setState({ survivorsList: res.data }))
         .catch((err) => console.log(err));
   };
