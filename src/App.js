@@ -53,7 +53,7 @@ class App extends Component {
       return response
     })
     axios
-        .get("https://clownfish-app-8qi77.ondigitalocean.app:8000/api/survivors/")
+        .get(process.env.DBD_RANDOMIZER_SERVICE_URL + "api/survivor/")
         .then((res) => this.setState({ survivorsList: res.data }))
         .catch((err) => console.log(err));
   };
