@@ -35,23 +35,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("entering componentDidMount");
-    console.log("calling refreshList");
     this.refreshList();
-    console.log(JSON.stringify(this.state.survivorsList));
-    console.log("returning from componentDidMount");
   }
 
   refreshList = () => {
-    axios.interceptors.request.use(request => {
-      console.log('Starting Request', JSON.stringify(request, null, 2))
-      return request
-    })
-
-    axios.interceptors.response.use(response => {
-      console.log('Response:', JSON.stringify(response, null, 2))
-      return response
-    })
     axios
         .get(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL + "api/survivor/")
         .then((res) => this.setState({ survivorsList: res.data }))
@@ -59,7 +46,6 @@ class App extends Component {
   };
 
   calculateRandom = (status) => {
-    console.log("entering calculateRandom");
     if (status) {
       let survivor = this.getRandomSurvivor();
       this.setState({ survivorName: survivor.name });
@@ -71,12 +57,9 @@ class App extends Component {
   };
 
   renderGenerateRandomButton = () => {
-    console.log("entering renderGenerateRandomButton");
-    console.log("returning from renderGenerateRandomButton")
     return (
         <div>
           <button className="btn btn-primary" onClick={() => {
-            console.log("Button Clicked");
             this.calculateRandom(true);
           }}>
             Generate Random Survivor Build
@@ -85,8 +68,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("entering render");
-    console.log("returning from render");
     return (
         <main className="container">
           <h1 className="text-white text-uppercase text-center my-4">Dead by Daylight Build Randomizer App</h1>
@@ -106,13 +87,7 @@ class App extends Component {
   }
 
   getRandomSurvivor() {
-    console.log("entering getRandomSurvivor");
-    console.log("survivorsList: " + this.state.survivorsList);
-    console.log(JSON.stringify(this.state.survivorsList));
-    let survivor = this.state.survivorsList[Math.floor(Math.random()*this.state.survivorsList.length)];
-    console.log("survivor: " + survivor.name);
-    console.log("returning from getRandomSurvivor")
-    return survivor;
+    return this.state.survivorsList[Math.floor(Math.random()*this.state.survivorsList.length)];
   }
 }
 
