@@ -28,7 +28,7 @@
   "scripts": {
     "start": "env-cmd -f .env.production react-scripts start",
     "dev": "env-cmd -f .env.local react-scripts start",
-    "build": "ennv-cmd -f .env.production react-scripts build",
+    "build": "env-cmd -f .env.production react-scripts build",
     "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/ --ignore-pattern build/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
