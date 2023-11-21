@@ -13,7 +13,8 @@
     "react-dom": "latest",
     "react-scripts": "latest",
     "reactstrap": "latest",
-    "web-vitals": "latest"
+    "web-vitals": "latest",
+    "env-cmd": "^10.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
@@ -25,8 +26,8 @@
     "ts-jest": "^29.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "env-cmd -f .env.local react-scripts start",
+    "build": "env-cmd -f .env.production react-scripts build",
     "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/ --ignore-pattern build/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
