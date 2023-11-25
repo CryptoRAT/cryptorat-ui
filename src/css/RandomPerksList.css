@@ -1,4 +1,16 @@
-.RandomPerksList {
-    padding: 20px;
-    display: inline-block;
+div.card.p-3.RandomPerksList {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
 }
+div.card.p-3.RandomSurivorNameAndImage {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.mb-4 {
+    text-align: center;
+}
+
+
