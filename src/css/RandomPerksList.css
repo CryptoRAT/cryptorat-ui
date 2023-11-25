@@ -1,3 +1,7 @@
+div.card {
+    background-color: darkslategrey;
+    color: white;
+}
 div.card.p-3.RandomPerksList {
     display: flex;
     justify-content: space-around;
