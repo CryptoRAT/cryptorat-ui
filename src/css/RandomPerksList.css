@@ -37,6 +37,12 @@ div.card.p-3.RandomSurivorNameAndImage {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     /* Styles for small laptops and desktops */
+    div.card.p-3.RandomPerksList {
+        width: 100%;
+        justify-content: space-around;
+        text-align: center;
+        flex-direction: column;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
