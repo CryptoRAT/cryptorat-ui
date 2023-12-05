@@ -14,7 +14,8 @@
     "react-scripts": "latest",
     "reactstrap": "latest",
     "web-vitals": "latest",
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "react-router-dom": "^6.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",

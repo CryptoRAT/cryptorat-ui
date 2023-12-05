@@ -92,7 +92,7 @@ const GenerateRandomSurvivor = () => {
         console.log("Entering getRandomSurvivorPerks");
         // Get random survivor perks
         axios
-            .get(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL + "api/perk/survivor/random/")
+            .post(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL + "api/perk/survivor/random/")
             .then((res) => {
                 console.log("Inside then block");
                 setRandomSurvivorPerks(res.data);
@@ -101,19 +101,6 @@ const GenerateRandomSurvivor = () => {
             })
             .catch((err) => console.log(err));
     }
-
-    // const loadInitialRandomData = () => {
-    //     console.log("Entering loadInitialRandomData");
-    //     calculateRandom(true);
-    //     console.log("Leaving loadInitialRandomData");
-    // };
-    //
-    // useEffect(() => {
-    //     console.log("Entering useEffect");
-    //     loadInitialRandomData();
-    //     console.log("Leaving useEffect");
-    // }, []); // Empty dependency array means this will run once on mount
-    //
 
 
     return (
