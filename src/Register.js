@@ -29,8 +29,8 @@ const Register = () => {
                 headers: {'X-CSRFToken': csrftoken}
             });
 
-            // Assuming the backend returns a success status
-            if (response.status === 200) {
+            // Check that the backend returns a success status
+            if (response.status === 201) {
                 // Redirect to the main page upon successful registration
                 navigate('/');
             } else {
@@ -39,14 +39,6 @@ const Register = () => {
             }
         } catch (error) {
             console.error('An error occurred during registration:', error);
-            console.error('Error response:', error.response)
-            console.error('Request config:', error.config)
-            console.error('Request headers:', error.config.headers)
-            console.error('Request body:', error.config.data)
-            console.error('Request url:', error.config.url)
-            console.error('Request method:', error.config.method)
-            console.error('Request status:', error.response.status)
-            console.error('csrftoken:', csrftoken)
         }
     };
 
