@@ -13,7 +13,9 @@ const Register = () => {
 
 
     const handleRegister = async () => {
+        // get the CSRF token from the cookie
         const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)[1];
+        axios.defaults.headers.common['X-CSRFToken'] = csrftoken;
         try {
             const registrationData = {
                 email,
@@ -21,18 +23,14 @@ const Register = () => {
                 confirmPassword,
                 displayName,
             };
-            // get the CSRF token from the cookie
-
 
             // Make a request to your Django backend
-            const response = await axios.post(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL +'user/register/', registrationData, {
-                headers: {'X-CSRFToken': csrftoken}
-            });
+            const response = await axios.post(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL +'user/register/', registrationData, {});
 
             // Check that the backend returns a success status
             if (response.status === 201) {
                 // Redirect to the main page upon successful registration
-                navigate('/');
+                navigate('/login/');
             } else {
                 // Handle other status codes or error responses
                 console.error('Registration failed:', response.data);
@@ -51,27 +49,37 @@ const Register = () => {
 
 
     return (
-        <div className="registration">
-            <h2>Register</h2>
-            <form>
-                <label>Email:</label>
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <div className="registration-container">
+            <h2 className="registration-title">Register</h2>
+            <form className="registration-form">
+                <div className="registration-field">
+                <label className="registration-label">Email:</label>
+                <input className="registration-inpurt" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
                 <br />
-                <label>Display Name:</label>
-                <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
+                <div className="registration-field">
+                <label className="registration-label">Display Name:</label>
+                <input className="registration-input" type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
+                </div>
                 <br />
-                <label>Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <div className="registration-field">
+                <label className="registration-label">Password:</label>
+                <input className="registration-input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
                 <br />
-                <label>Confirm Password:</label>
-                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                <div className="registration-field">
+                <label className="registration-label">Confirm Password:</label>
+                <input className="registration-input" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                </div>
                 <br />
                 <input
+                    className="registration-input"
                     type="text"
+                    hidden="True"
                     placeholder="Press Enter or click button to register"
                     onKeyDown={handleEnterPress}
                     />
-                <button type="button" onClick={handleRegister}>
+                <button className="btn btn-primary" type="button" onClick={handleRegister}>
                     Register
                 </button>
             </form>

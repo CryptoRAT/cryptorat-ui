@@ -1,32 +1,69 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Using useNavigate instead of useNavigation
+import axios from 'axios';
+import './css/Login.css';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();  // Updated hook name
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
-        // Implement your login logic, e.g., make a request to your Django backend
-        // If login is successful, redirect to the main page
-        // You might want to handle authentication tokens or session management here
+        const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)[1];
+        axios.defaults.headers.common['X-CSRFToken'] = csrftoken;
+        console.log("Entering handleLogin");
+        console.log("email: " + email);
+        console.log("password: " + password);
+        console.log("csrftoken: " + csrftoken);
 
-        // For a simple example, let's assume a successful login
-        // and redirect to the main page
-        navigate('/');
+        try {
+            console.log("Entering try block");
+            // Make a POST request to your Django backend API
+            const response = await axios.post(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL + 'user/login/', {
+                username: email,
+                password: password,
+            });
+
+            console.log("response: ", response);
+
+            // Assuming your backend returns an access_token
+            const accessToken = response.data.access_token;
+            onLogin(accessToken);
+            // Redirect to the main page
+            navigate('/');
+        } catch (error) {
+            // Handle authentication failure
+            console.error('Login failed:', error);
+            // You can also set an error state and display a message to the user
+            console.error('error.response.data:', error.response.data);
+            console.error('error.response.status:', error.response.status);
+            console.error('error.response.headers:', error.response.headers);
+        }
     };
 
+    const handleEnterPress = (event) => {
+        if (event.key === 'Enter') {
+            // Trigger the button click logic when Enter key is pressed
+            handleLogin();
+        }
+    };
     return (
-        <div>
-            <h2>Login</h2>
-            <form>
-                <label>Email:</label>
+        <div className="login-container">
+            <h2 className="login-title">Login</h2>
+            <form className="login-form">
+                <label className="login-label">Email:</label>
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br />
-                <label>Password:</label>
+                <label className="login-label">Password:</label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br />
-                <button type="button" onClick={handleLogin}>
+                <input className={"login-input"}
+                    type="text"
+                    hidden="True"
+                    placeholder="Press Enter or click button to register"
+                    onKeyDown={handleEnterPress}
+                />
+                <button className="btn btn-primary" type="button" onClick={handleLogin}>
                     Login
                 </button>
             </form>
