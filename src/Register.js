@@ -13,6 +13,7 @@ const Register = () => {
 
 
     const handleRegister = async () => {
+        const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)[1];
         try {
             const registrationData = {
                 email,
@@ -21,7 +22,7 @@ const Register = () => {
                 displayName,
             };
             // get the CSRF token from the cookie
-            const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)[1];
+
 
             // Make a request to your Django backend
             const response = await axios.post(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL +'user/register/', registrationData, {
@@ -38,8 +39,24 @@ const Register = () => {
             }
         } catch (error) {
             console.error('An error occurred during registration:', error);
+            console.error('Error response:', error.response)
+            console.error('Request config:', error.config)
+            console.error('Request headers:', error.config.headers)
+            console.error('Request body:', error.config.data)
+            console.error('Request url:', error.config.url)
+            console.error('Request method:', error.config.method)
+            console.error('Request status:', error.response.status)
+            console.error('csrftoken:', csrftoken)
         }
     };
+
+    const handleEnterPress = (event) => {
+        if (event.key === 'Enter') {
+            // Trigger the button click logic when Enter key is pressed
+            handleRegister();
+        }
+    };
+
 
     return (
         <div className="registration">
@@ -57,6 +74,11 @@ const Register = () => {
                 <label>Confirm Password:</label>
                 <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 <br />
+                <input
+                    type="text"
+                    placeholder="Press Enter or click button to register"
+                    onKeyDown={handleEnterPress}
+                    />
                 <button type="button" onClick={handleRegister}>
                     Register
                 </button>
