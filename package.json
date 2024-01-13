@@ -30,7 +30,7 @@
     "serve": "^14.2.1"
   },
   "scripts": {
-    "start": "yarn build && npx serve -s build",
+    "start": "npx serve -s build",
     "dev": "env-cmd -f .env.local react-scripts start",
     "build": "env-cmd -f .env.production react-scripts build",
     "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/ --ignore-pattern build/",
