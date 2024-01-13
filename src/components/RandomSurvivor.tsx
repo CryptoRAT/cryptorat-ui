@@ -28,7 +28,7 @@ const RandomSurvivor: React.FC<RandomSurvivorProps> = ({survivor, perks}) => {
             <div className="card p-3 RandomSurivorNameAndImage">
                 <div>Survivor: {survivor.name}</div>
                 <div>
-                    <img className="profile-photo" src={survivor.image_path} alt={survivor.name} />
+                    <img className="profile-photo" src={`../${survivor.image_path}`} alt={survivor.name} />
                 </div>
 
             </div>
@@ -36,7 +36,7 @@ const RandomSurvivor: React.FC<RandomSurvivorProps> = ({survivor, perks}) => {
                 {perks.map((perk, index) => (
                     <div className="randomPerk" key={index}>
                         <div>
-                            <img className="profile-photo" src={perk.image_path} alt={perk.name} />
+                            <img className="profile-photo" src={`../${perk.image_path}`} alt={perk.name} />
                         </div>
                     </div>
                 ))}
