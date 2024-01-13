@@ -1,10 +1,45 @@
+.component-container {
+    padding: 20px;
+}
+
 .logo {
     display: flex;
     justify-content: center;
 }
 
 .logo img {
-    width: 25%; /* 50% of the original width */
+    width: 100%; /* 50% of the original width */
     height: auto; /* maintain the aspect ratio */
 }
 
+.introductions {
+    color: #ffbf00;
+    border-bottom: 1px solid #ffbf00;
+    margin-bottom: 20px;
+}
+
+/* Add a horizontal line between the internal-link and external-link */
+.internal-link {
+    border-bottom: 1px solid #ffbf00;
+    margin-bottom: 20px;
+}
+
+.internal-link p {
+    color: #ffbf00;
+    margin-bottom: 20px;
+}
+
+.external-link {
+    border-bottom: 1px solid #ffbf00;
+    margin-bottom: 20px;
+}
+.external-link p {
+    color: #ffbf00;
+    margin-bottom: 20px;
+}
+
+.navigation a {
+    color: #ffbf00;
+    display: block; /* Make links block-level elements to create space between them */
+    margin-bottom: 20px;
+}
