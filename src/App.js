@@ -27,7 +27,6 @@ class App extends Component {
                 <AuthProvider>
                     {(authProps) => (
                         <div>
-                            <Header accessToken={authProps.accessToken} />
                             <Routes>
                                 <Route path="/dbd/register/" element={<Register/>}/>
                                 <Route path="/dbdlogin/" element={<Login onLogin={authProps.handleLogin}/>}/>
