@@ -1,25 +1,11 @@
 .header-banner {
+    position: sticky;
+    top: 0;
     background-color: darkslategrey;
     color: white;
-    padding: 10px;
+    padding: 1px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.header-h1 {
-    margin: 0;
-    color: white;
-    align-ites: center;
-}
-
-.header-nav {
-    display: flex;
-    margin-left: auto; /* Moves the login link to the right */
-}
-
-.header-link {
-    color: white;
-    text-decoration: none;
-    margin-left: 10px;
-}

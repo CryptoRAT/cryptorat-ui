@@ -1,8 +1,26 @@
-// RandomSurvivor.js
 import React from "react";
-import './css/RandomPerksList.css';
+import '../css/RandomPerksList.css';
 
-const RandomSurvivor = ({ survivor, perks }) => {
+interface Survivor {
+    id: number;
+    name: string;
+    image_path: string;
+}
+
+interface Perk {
+    id: number;
+    name: string;
+    type: string;
+    owner: string;
+    image_path: string;
+}
+
+interface RandomSurvivorProps {
+    survivor: Survivor;
+    perks: Perk[];
+}
+
+const RandomSurvivor: React.FC<RandomSurvivorProps> = ({survivor, perks}) => {
     console.log("Received Survivor Props:", survivor);
     console.log("Received Perks Props:", perks);
     return (
@@ -16,7 +34,7 @@ const RandomSurvivor = ({ survivor, perks }) => {
             </div>
             <div className="card p-3 RandomPerksList">
                 {perks.map((perk, index) => (
-                    <div className="randomPerk" key={index} item={perk.name}>
+                    <div className="randomPerk" key={index}>
                         <div>
                             <img className="profile-photo" src={perk.image_path} alt={perk.name} />
                         </div>

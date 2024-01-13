@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import "./App.css";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
-import Header from "./Header";
-import GenerateRandomSurvivor from "./GenerateRandomSurvivor";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Header from "./components/Header";
+import GenerateRandomSurvivor from "./components/GenerateRandomSurvivor";
 import AuthProvider from "./AuthProvider";
+import CryptoratLandingPage from "./components/CryptoratLandingPage";
 
 
 class App extends Component {
@@ -28,9 +29,10 @@ class App extends Component {
                         <div>
                             <Header accessToken={authProps.accessToken} />
                             <Routes>
-                                <Route path="/register/" element={<Register/>}/>
-                                <Route path="/login/" element={<Login onLogin={authProps.handleLogin}/>}/>
-                                <Route path="/" element={<GenerateRandomSurvivor/>}/>
+                                <Route path="/dbd/register/" element={<Register/>}/>
+                                <Route path="/dbdlogin/" element={<Login onLogin={authProps.handleLogin}/>}/>
+                                <Route path="/dbd/" element={<GenerateRandomSurvivor/>}/>
+                                <Route path="/" element={<CryptoratLandingPage/>}/>
                             </Routes>
                         </div>
                     )}

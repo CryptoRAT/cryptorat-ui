@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Using useNavigate instead of useNavigation
 import axios from 'axios';
-import './css/Login.css';
+import '../css/Login.css';
 
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
@@ -9,26 +9,25 @@ const Login = ({ onLogin }) => {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)[1];
-        axios.defaults.headers.common['X-CSRFToken'] = csrftoken;
-        console.log("Entering handleLogin");
-        console.log("email: " + email);
-        console.log("password: " + password);
-        console.log("csrftoken: " + csrftoken);
-
         try {
-            console.log("Entering try block");
+            // Get CSRF token from cookies
+            const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)[1];
+
+            // Set CSRF token in headers
+            axios.defaults.headers.common['X-CSRFToken'] = csrftoken;
+
             // Make a POST request to your Django backend API
             const response = await axios.post(process.env.REACT_APP_DBD_RANDOMIZER_SERVICE_URL + 'user/login/', {
                 username: email,
                 password: password,
             });
 
-            console.log("response: ", response);
-
             // Assuming your backend returns an access_token
             const accessToken = response.data.access_token;
+
+            // Set the access token in your application (you might have a global state for this)
             onLogin(accessToken);
+
             // Redirect to the main page
             navigate('/');
         } catch (error) {
@@ -40,6 +39,7 @@ const Login = ({ onLogin }) => {
             console.error('error.response.headers:', error.response.headers);
         }
     };
+
 
     const handleEnterPress = (event) => {
         if (event.key === 'Enter') {
@@ -59,7 +59,6 @@ const Login = ({ onLogin }) => {
                 <br />
                 <input className={"login-input"}
                     type="text"
-                    hidden="True"
                     placeholder="Press Enter or click button to register"
                     onKeyDown={handleEnterPress}
                 />

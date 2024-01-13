@@ -2,13 +2,27 @@ import RandomSurvivor from "./RandomSurvivor";
 import React, { useState } from "react";
 import axios from "axios";
 
+interface Survivor {
+    id: number;
+    name: string;
+    image_path: string;
+}
+
+interface Perk {
+    id: number;
+    name: string;
+    type: string;
+    owner: string;
+    image_path: string;
+}
+
 const GenerateRandomSurvivor = () => {
-    const [randomSurvivor, setRandomSurvivor] = useState({
+    const [randomSurvivor, setRandomSurvivor] = useState<Survivor>({
         id: 1,
         name: "Ace Visconti",
         image_path: "static/survivors/ace_visconti.jpg",
     });
-    const [randomSurvivorPerks, setRandomSurvivorPerks] = useState([
+    const [randomSurvivorPerks, setRandomSurvivorPerks] = useState<Perk[]>([
         {
             "id": 1,
             "name": "Ace in the Hole",
@@ -43,19 +57,18 @@ const GenerateRandomSurvivor = () => {
         console.log("Entering renderGenerateRandomButton");
         return (
             <div>
-                <button className="btn btn-primary" onClick={() => calculateRandom(true)}>
+                <button className="btn btn-primary" onClick={() => calculateRandom()}>
                     Generate Random Survivor Build
                 </button>
             </div>
         );
     };
 
-    const calculateRandom = (status) => {
+    const calculateRandom = () => {
         console.log("Entering calculateRandom");
-        if (status) {
-            getRandomSurvivor();
-            getRandomSurvivorPerks();
-        }
+        getRandomSurvivor();
+        getRandomSurvivorPerks();
+
         console.log("Leaving calculateRandom");
     };
 
