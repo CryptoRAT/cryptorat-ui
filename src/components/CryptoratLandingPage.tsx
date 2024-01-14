@@ -7,12 +7,13 @@ const CryptoratLandingPage: React.FC = () => {
         <div className="component-container">
             {/* Logo */}
             <div className="logo">
-                {/* You can insert your logo here */}
                 <img src="253_CryptoRAT_Logo_03.png" alt="Cryptorat Logo"/>
             </div>
             <div className="introductions">
                 <p>Welcome to my neighborhood! Just a bit of warning, all web-sites not in production are in various states.
-                   Some I will come back to and some will be left behind. If it stops rendering any page I will remove it from here.</p>
+                   Some I will come back to and some will be left behind. If it stops rendering any page I will remove it from here.
+                   Additionally, while I have "designed" these pages, I am afraid my sister and mother got the art talent.
+                   I am open to any feedback.</p>
             </div>
             {/* Navigation Links */}
             <nav className="navigation">
@@ -28,9 +29,9 @@ const CryptoratLandingPage: React.FC = () => {
                     <a href="https://github.com/CryptoRAT"
                        target="_blank"
                        rel="noopener noreferrer">
-                    <i className="fab fa-github"></i> Github</a>
-        </div>
-    <div className="external-link">
+                        <i className="fab fa-github"></i> Github</a>
+                </div>
+                <div className="external-link">
                     <a href="https://blog.cryptorat.com" target="_blank" rel="noopener noreferrer">
                         My self built blog
                     </a>
@@ -44,15 +45,25 @@ const CryptoratLandingPage: React.FC = () => {
                     <a href="https://arkfarmsveganic.com" target="_blank" rel="noopener noreferrer">
                         https://arkfarmsveganic.com
                     </a>
-                    <p>This is a project I put together for a local farmer. It's a fully reactive site in react and javascript.
-                        It's not much more than a a landing page with some formatting at present, but let's see what it will
-                        grow into over the coming years.
+                    <p>This is a small project I put together for a local farmer who is a really nice guy. It's a fully reactive
+                        site in react and javascript. It's not much more than a a landing page with some formatting at
+                        present, but let's see what it will grow into over the coming years.
                     </p>
                 </div>
-            </nav>
-
+                {/* Contact me links*/}
+                <div className="mailto-link">
+                    <a href="mailto:luke@cryptorat.com">Contact me directly</a>
+                </div>
+                <div>
+                    <a href="https://www.linkedin.com/in/luke-elliot-9b15ab46/" target="_blank" rel="noopener noreferrer">
+                    <i className="fab fa-linkedin"></i> Contact me on LinkedIn
+                </a>
         </div>
-    );
+</nav>
+
+</div>
+)
+    ;
 };
 
 export default CryptoratLandingPage;
