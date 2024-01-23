@@ -33,17 +33,17 @@ const GenerateRandomSurvivor = () => {
         },
         {
             "id": 2,
-            "name": "Open-Handed",
+            "name": "Plunderers Instinct",
             "type": "Survivor",
-            "owner": "Ace Visconti",
-            "image_path": "static/perks/open_handed.webp"
+            "owner": "Common",
+            "image_path": "static/perks/plunderers_instinct.webp"
         },
         {
             "id": 3,
-            "name": "Up the Ante",
+            "name": "Windows of Opportunity",
             "type": "Survivor",
-            "owner": "Ace Visconti",
-            "image_path": "static/perks/up_the_ante.webp"
+            "owner": "Kate Denson",
+            "image_path": "static/perks/windows_of_opportunity.webp"
         },
         {
             "id": 4,
