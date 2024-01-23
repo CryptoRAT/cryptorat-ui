@@ -13,7 +13,17 @@ div.card.p-3.RandomSurivorNameAndImage {
     text-align: center;
 }
 
+div.card.p-3.RandomSurivorNameAndImage img{
+    width:  300px;
+    height: auto; /* Maintain the aspect ratio */
+}
+
+
 .mb-4 {
+    text-align: center;
+}
+
+.randomPerkName {
     text-align: center;
 }
 

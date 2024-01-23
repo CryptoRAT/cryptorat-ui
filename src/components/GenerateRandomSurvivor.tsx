@@ -1,6 +1,7 @@
 import RandomSurvivor from "./RandomSurvivor";
 import React, { useState } from "react";
 import axios from "axios";
+import '../css/GenerateRandomSurvivor.css';
 
 interface Survivor {
     id: number;

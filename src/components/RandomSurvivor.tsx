@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/RandomPerksList.css';
+import '../css/RandomSurvivor.css';
 
 interface Survivor {
     id: number;
@@ -37,6 +37,9 @@ const RandomSurvivor: React.FC<RandomSurvivorProps> = ({survivor, perks}) => {
                     <div className="randomPerk" key={index}>
                         <div>
                             <img className="profile-photo" src={`../${perk.image_path}`} alt={perk.name} />
+                        </div>
+                        <div className="randomPerkName">
+                            {perk.name}
                         </div>
                     </div>
                 ))}
