@@ -1,7 +1,8 @@
 import RandomSurvivor from "./RandomSurvivor";
+import Header from "./Header";
 import React, { useState } from "react";
 import axios from "axios";
-import '../css/GenerateRandomSurvivor.css';
+import '../css/GenerateRandomCharacter.css';
 
 interface Survivor {
     id: number;
@@ -17,7 +18,7 @@ interface Perk {
     image_path: string;
 }
 
-const GenerateRandomSurvivor = () => {
+const GenerateRandomCharacter = () => {
     const [randomSurvivor, setRandomSurvivor] = useState<Survivor>({
         id: 1,
         name: "Ace Visconti",
@@ -51,6 +52,42 @@ const GenerateRandomSurvivor = () => {
             "type": "Survivor",
             "owner": "Dwight Fairfield",
             "image_path": "static/perks/bond.webp"
+        },
+    ]);
+
+    const [randomKiller, setRandomKiller] = useState<Survivor>({
+        id: 1,
+        name: "The Pig",
+        image_path: "static/killers/the_pig.jpg",
+    });
+    const [randomKillerPerks, setRandomKillerPerks] = useState<Perk[]>([
+        {
+            "id": 1,
+            "name": "Nowhere to Hide",
+            "type": "Killer",
+            "owner": "The Knight",
+            "image_path": "static/perks/nowhere_to_hide.webp"
+        },
+        {
+            "id": 2,
+            "name": "Whispers",
+            "type": "Killer",
+            "owner": "Common",
+            "image_path": "static/perks/whispers.webp"
+        },
+        {
+            "id": 3,
+            "name": "Hex: Plaything",
+            "type": "Killer",
+            "owner": "The Cenobite",
+            "image_path": "static/perks/hex_plaything.webp"
+        },
+        {
+            "id": 4,
+            "name": "Hex: Pentimento",
+            "type": "Killer",
+            "owner": "The Artist",
+            "image_path": "static/perks/hex_pentimento.webp"
         },
     ]);
 
@@ -119,6 +156,7 @@ const GenerateRandomSurvivor = () => {
 
     return (
         <main className="container">
+            <Header/>
             <div className="row">
                 <div className="col-md-6 col-sm-10 mx-auto p-0">
                     <div className="card p-3">
@@ -134,4 +172,4 @@ const GenerateRandomSurvivor = () => {
     );
 };
 
-export default GenerateRandomSurvivor;
+export default GenerateRandomCharacter;
