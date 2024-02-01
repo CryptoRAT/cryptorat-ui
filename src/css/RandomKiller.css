@@ -7,13 +7,13 @@ div.card.p-3.RandomPerksList {
     justify-content: space-around;
     flex-direction: row;
 }
-div.card.p-3.RandomSurvivorNameAndImage {
+div.card.p-3.RandomKillerNameAndImage {
     display: flex;
     justify-content: space-around;
     text-align: center;
 }
 
-div.card.p-3.RandomSurvivorNameAndImage img{
+div.card.p-3.RandomKillerNameAndImage img{
     width:  300px;
     height: auto; /* Maintain the aspect ratio */
 }

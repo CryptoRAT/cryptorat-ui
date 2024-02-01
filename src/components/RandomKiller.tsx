@@ -1,7 +1,7 @@
 import React from "react";
-import '../css/RandomSurvivor.css';
+import '../css/RandomKiller.css';
 
-interface Survivor {
+interface Killer {
     id: number;
     name: string;
     image_path: string;
@@ -15,20 +15,20 @@ interface Perk {
     image_path: string;
 }
 
-interface RandomSurvivorProps {
-    survivor: Survivor;
+interface RandomKillerProps {
+    killer: Killer;
     perks: Perk[];
 }
 
-const RandomSurvivor: React.FC<RandomSurvivorProps> = ({survivor, perks}) => {
-    console.log("Received Survivor Props:", survivor);
+const RandomKiller: React.FC<RandomKillerProps> = ({killer, perks}) => {
+    console.log("Received Killer Props:", killer);
     console.log("Received Perks Props:", perks);
     return (
         <>
-            <div className="card p-3 RandomSurvivorNameAndImage">
-                <div>Survivor: {survivor.name}</div>
+            <div className="card p-3 RandomKillerNameAndImage">
+                <div>Killer: {killer.name}</div>
                 <div>
-                    <img className="profile-photo" src={`../${survivor.image_path}`} alt={survivor.name} />
+                    <img className="profile-photo" src={`../${killer.image_path}`} alt={killer.name} />
                 </div>
 
             </div>
@@ -48,4 +48,4 @@ const RandomSurvivor: React.FC<RandomSurvivorProps> = ({survivor, perks}) => {
     );
 };
 
-export default RandomSurvivor;
+export default RandomKiller;

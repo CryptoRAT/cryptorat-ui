@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Header from "./components/Header";
-import GenerateRandomSurvivor from "./components/GenerateRandomSurvivor";
+import GenerateRandomCharacter from "./components/GenerateRandomCharacter";
 import AuthProvider from "./AuthProvider";
 import CryptoratLandingPage from "./components/CryptoratLandingPage";
 
@@ -30,7 +30,7 @@ class App extends Component {
                             <Routes>
                                 <Route path="/dbd/register/" element={<Register/>}/>
                                 <Route path="/dbdlogin/" element={<Login onLogin={authProps.handleLogin}/>}/>
-                                <Route path="/dbd/" element={<GenerateRandomSurvivor/>}/>
+                                <Route path="/dbd/" element={<GenerateRandomCharacter/>}/>
                                 <Route path="/" element={<CryptoratLandingPage/>}/>
                             </Routes>
                         </div>
