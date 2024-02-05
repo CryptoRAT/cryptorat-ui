@@ -7,7 +7,7 @@ let Header: React.FC = () => {
     return (
         <header>
             <div className="header-banner">
-                <h1 className="header-h1">Lupo19's Neighborhood</h1>
+                <h1 className="header-h1">Lupo198's Neighborhood</h1>
             </div>
         </header>
     );
