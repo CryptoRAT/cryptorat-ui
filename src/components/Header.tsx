@@ -1,16 +1,59 @@
 import React from 'react';
-
 import '../css/Header.css';
+import {Link} from "react-router-dom";
+import { connect } from 'react-redux';
+import { addItem } from '../redux/actions/actions';
 
-let Header: React.FC = () => {
+interface HeaderProps {
+    loggedIn: boolean;
+}
+
+let Header: React.FC<HeaderProps> = ({ loggedIn }) => {
+
+    const renderLoginAndRegisterLinks = () => {
+        console.log("Entering renderLoginAndRegisterButtons");
+        return (
+            <div className="links">
+                <div>
+                    <Link to="/dbd/user/register/">Register</Link>
+                    <Link to="/dbd/user/login/">Login</Link>
+                </div>
+            </div>
+
+        );
+    };
+    const renderLoggedInUserLinks = () => {
+        console.log("Entering renderLoginAndRegisterButtons");
+        return (
+            <div className="links">
+                <div>
+                    <Link to="/dbd/myaccount/">My Account</Link>
+                </div>
+            </div>
+
+        );
+    };
+
 
     return (
         <header>
             <div className="header-banner">
-                <h1 className="header-h1">Lupo19's Neighborhood</h1>
+                {loggedIn ? renderLoggedInUserLinks() : renderLoginAndRegisterLinks()}
             </div>
         </header>
     );
 };
 
-export default Header;
+// Maps state from the store to props in this component
+const mapStateToProps = (state) => ({
+    items: state.items.items, // First `items` is the reducer, second `items` is the state within that reducer
+});
+
+// Provides functions to dispatch actions to the store
+const mapDispatchToProps = {
+    addItem, // Shorthand for `addItem: item => dispatch(addItem(item))`
+};
+
+// Connect the component to the Redux store and export it
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
+

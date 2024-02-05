@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Header from "./components/Header";
+import { Provider } from 'react-redux';
+import store from './store';
 import GenerateRandomCharacter from "./components/GenerateRandomCharacter";
 import AuthProvider from "./AuthProvider";
 import CryptoratLandingPage from "./components/CryptoratLandingPage";
@@ -25,6 +27,7 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <AuthProvider>
+                    <Provider store={store}>
                     {(authProps) => (
                         <div>
                             <Routes>
@@ -35,6 +38,7 @@ class App extends Component {
                             </Routes>
                         </div>
                     )}
+                    </Provider>
                 </AuthProvider>
             </BrowserRouter>
 
