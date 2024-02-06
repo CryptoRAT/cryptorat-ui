@@ -1,8 +1,8 @@
 // Action Types
-export const ADD_ITEM = 'ADD_ITEM';
+export const UPDATE_AUTH = 'UPDATE_AUTH';
 
 // Action Creators
-export const addItem = (item: string) => ({
-    type: ADD_ITEM,
-    payload: item,
+export const updateAuth = (token: string) => ({
+    type: UPDATE_AUTH,
+    payload: token,
 });

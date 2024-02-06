@@ -27,12 +27,13 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <AuthProvider>
+                    <Header></Header>
                     <Provider store={store}>
                     {(authProps) => (
                         <div>
                             <Routes>
                                 <Route path="/dbd/register/" element={<Register/>}/>
-                                <Route path="/dbdlogin/" element={<Login onLogin={authProps.handleLogin}/>}/>
+                                <Route path="/dbd/login/" element={<Login onLogin={authProps.onLogin}/>}/>
                                 <Route path="/dbd/" element={<GenerateRandomCharacter/>}/>
                                 <Route path="/" element={<CryptoratLandingPage/>}/>
                             </Routes>
