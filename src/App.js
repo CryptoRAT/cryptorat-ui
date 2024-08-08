@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Header from "./components/Header";
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './redux/store';
 import GenerateRandomCharacter from "./components/GenerateRandomCharacter";
 import AuthProvider from "./AuthProvider";
 import CryptoratLandingPage from "./components/CryptoratLandingPage";

@@ -44,4 +44,3 @@ You can learn how this is deployed here: [deployment](./src/documentation/DEPLOY
 ### TODOs
 
 You can see a list of things I would like to add to this site here: [wish list])(./src/documentation/WITHLIST.md)
-Author: Luke M. Elliot
