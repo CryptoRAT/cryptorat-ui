@@ -1,16 +1,11 @@
 import React from 'react';
 import '../css/Header.css';
 import {Link} from "react-router-dom";
-import { connect } from 'react-redux';
-import { updateAuth } from '../redux/actions/actions';
+
 
 interface HeaderProps {
     loggedIn: boolean;
 }
-
-type RootState = {
-    authToken: string,
-};
 let Header: React.FC<HeaderProps> = ({ loggedIn }) => {
 
     const renderLoginAndRegisterLinks = () => {
@@ -47,16 +42,5 @@ let Header: React.FC<HeaderProps> = ({ loggedIn }) => {
     );
 };
 
-// Maps state from the store to props in this component
-const mapStateToProps = (state: RootState) => ({
-    token: state.authToken,
-});
-
-// Provides functions to dispatch actions to the store
-const mapDispatchToProps = {
-    updateAuth, // Shorthand for `updateAuth: auth => dispatch(updateAuth(auth))`
-};
-
-// Connect the component to the Redux store and export it
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;
 
