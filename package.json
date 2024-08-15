@@ -37,7 +37,8 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "clean": "rm -rf build && rm -rf node_modules",
+    "clean": "rm -rf build",
+    "clean:full": "rm -rf build && rm -rf node_modules",
     "start": "npx serve -s build",
     "dev": "env-cmd -f .env.local react-scripts start",
     "build": "env-cmd -f .env.production react-scripts build",
