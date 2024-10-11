@@ -21,5 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/.idea/*.iml
-/.idea/compiler.xml
+### IntelliJ IDEA files ###
+.idea/
+*.iml
+*.ipr
+*.iws
