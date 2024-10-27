@@ -20,4 +20,4 @@ RUN yarn build
 EXPOSE 5000
 
 # Command to run the app
-CMD ["npx", "serve", "-s", "build"]
+CMD ["node", "server.js"]
